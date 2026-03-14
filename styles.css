@@ -1,278 +1,255 @@
 /* Base styles (mobile first) */
 body {
-margin: 0;
-font-family: Arial, sans-serif;
-background-image: url(simple.avif);
-background-repeat: no-repeat;
-background-size: cover;
-background-position: center; /* Better background positioning */
-display: flex;
-flex-direction: column;
-align-items: center;
-min-height: 100vh;
-padding: 10px; /* Add some padding on mobile */
-box-sizing: border-box;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url(simple.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .weatherForm {
-margin: 20px;
-width: 100%;
-max-width: 500px; /* Prevent form from getting too wide */
-display: flex;
-flex-direction: column;
-align-items: center;
+    margin: 20px;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .cityInput {
-width: 100%; /* Full width on mobile */
-max-width: 280px; /* Slightly larger than original */
-height: 30px;
-border: none;
-border-radius: 8px;
-font-size: 1.2rem; /* Slightly smaller on mobile */
-font-weight: bold;
-padding: 12px; /* Slightly smaller padding on mobile */
-margin: 10px 0;
-box-sizing: border-box;
+    width: 100%;
+    max-width: 280px;
+    /* Remove fixed height - let padding determine it */
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 16px; /* Match button padding */
+    margin: 10px 0;
+    box-sizing: border-box;
+    line-height: 1; /* Better text alignment */
 }
 
 button[type="submit"] {
-padding: 14px 20px; /* Adjusted padding */
-font-size: 1.2rem; /* Slightly smaller on mobile */
-font-weight: bold;
-border: none;
-border-radius: 8px;
-background: linear-gradient(90deg, hsl(210, 100%, 75%), hsl(40, 100%, 70%));
-background-size: 200% 200%;
-background-position: 0% 0%;
-animation: gradientanim 3s linear infinite;
-color: white;
-cursor: pointer;
-width: 100%;
-max-width: 280px;
-transition: transform 0.3s ease;
-}
-
-@keyframes gradientanim {
-0% { background-position: 0% 50%; }
-25% { background-position: 100% 50%; }
-50% { background-position: 100% 100%; }
-75% { background-position: 0% 100%; }
-100% { background-position: 0% 50%; }
-}
-
-button:hover {
-animation: scale 0.8s ease-in;
-}
-
-@keyframes scale {
-0%, 100% { transform: scale(1); }
-50% { transform: scale(1.2); }
-}
-
-.card {
-background: linear-gradient(180deg, hsl(210, 100%, 75%), hsl(40, 100%, 70%));
-padding: 30px; /* Smaller padding on mobile */
-border-radius: 15px; /* Slightly more rounded */
-box-shadow: hsl(0, 0%, 0%) 0px 0px 10px 5px;
-width: 100%;
-max-width: 350px; /* Slightly larger than original */
-display: flex;
-flex-direction: column;
-align-items: center;
-margin: 10px auto;
-box-sizing: border-box;
-}
-
-h1 {
-color: rgb(117, 117, 175);
-margin-top: 0;
-margin-bottom: 20px;
-font-size: 2rem; /* Responsive font size */
-text-align: center;
-}
-
-p {
-font-size: 1.2rem; /* Smaller on mobile */
-margin: 10px 0;
-font-weight: bold;
-text-align: center;
-}
-
-.cityDisplay, .timpDisplay {
-font-size: 2.5rem; /* Smaller on mobile */
-font-weight: bold;
-margin-bottom: 15px;
-text-align: center;
-word-break: break-word; /* Prevent long city names from overflowing */
-}
-
-.humidityDisplay {
-margin-bottom: 15px;
-}
-
-.descDisplay {
-font-style: italic;
-font-size: 1.8rem; /* Smaller on mobile */
-color: hsla(0, 9%, 9%, 0.748);
-text-align: center;
-}
-
-.weatherEmoji {
-font-size: 5rem; /* Smaller on mobile */
-margin: 10px 0;
-}
-
-.errorDisplay {
-color: hsla(0, 9%, 9%, 0.748);
-text-align: center;
-padding: 10px;
+    padding: 16px; /* Keep consistent with input */
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, hsl(210, 100%, 75%), hsl(40, 100%, 70%));
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+    animation: gradientanim 3s linear infinite;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    max-width: 280px;
+    line-height: 1; /* Match input line height */
+    transition: transform 0.3s ease;
 }
 
 /* ===== TABLETS (600px and up) ===== */
 @media screen and (min-width: 600px) {
-body {
-padding: 20px;
-}
+    body {
+        padding: 20px;
+    }
 
-.weatherForm {
-flex-direction: row; /* Row layout on tablets */
-justify-content: center;
-gap: 15px;
-margin: 30px;
-}
+    .weatherForm {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center; /* Align items vertically */
+        gap: 15px;
+        margin: 30px;
+    }
 
-.cityInput {
-width: 280px;
-font-size: 1.5rem;
-padding: 15px;
-margin: 0;
-}
+    .cityInput {
+        width: 280px;
+        font-size: 1.5rem;
+        padding: 16px; /* Keep padding consistent */
+        margin: 0;
+        height: auto; /* Let padding determine height */
+    }
 
-button[type="submit"] {
-width: auto;
-min-width: 150px;
-font-size: 1.5rem;
-padding: 16px;
-}
-
-.card {
-padding: 40px;
-max-width: 450px;
-}
-
-p {
-font-size: 1.5rem;
-}
-
-.cityDisplay, .timpDisplay {
-font-size: 3rem;
-}
-
-.descDisplay {
-font-size: 2.2rem;
-}
-
-.weatherEmoji {
-font-size: 6rem;
-}
+    button[type="submit"] {
+        width: auto;
+        min-width: 150px;
+        font-size: 1.5rem;
+        padding: 16px; /* Exactly matching input padding */
+        height: auto; /* Let padding determine height */
+        /* This ensures both elements have the same height */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 /* ===== DESKTOPS (992px and up) ===== */
 @media screen and (min-width: 992px) {
-body {
-padding: 30px;
+    body {
+        padding: 30px;
+    }
+
+    .weatherForm {
+        margin: 40px;
+        gap: 20px;
+    }
+
+    .cityInput {
+        width: 350px;
+        font-size: 1.8rem;
+        padding: 18px; /* Slightly larger on desktop */
+    }
+
+    button[type="submit"] {
+        font-size: 1.8rem;
+        padding: 18px 30px; /* Match input padding vertically */
+        min-width: 180px;
+    }
+
+    .card {
+        padding: 50px;
+        max-width: 550px;
+        box-shadow: hsl(0, 0%, 0%) 0px 0px 15px 8px;
+    }
+
+    p {
+        font-size: 1.8rem;
+        margin: 13px 15px;
+    }
+
+    .cityDisplay, .timpDisplay {
+        font-size: 3.5rem;
+    }
+
+    .descDisplay {
+        font-size: 2.5rem;
+    }
+
+    .weatherEmoji {
+        font-size: 7rem;
+    }
 }
 
-.weatherForm {
-margin: 40px;
-gap: 20px;
+/* Rest of your animations and other styles remain the same */
+@keyframes gradientanim {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 100% 50%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+    100% { background-position: 0% 50%; }
 }
 
-.cityInput {
-width: 350px;
-font-size: 1.8rem;
+button:hover {
+    animation: scale 0.8s ease-in;
 }
 
-button[type="submit"] {
-font-size: 1.8rem;
-padding: 18px 30px;
+@keyframes scale {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
 }
 
 .card {
-padding: 50px;
-max-width: 550px;
-box-shadow: hsl(0, 0%, 0%) 0px 0px 15px 8px; /* Slightly bigger shadow on desktop */
+    background: linear-gradient(180deg, hsl(210, 100%, 75%), hsl(40, 100%, 70%));
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: hsl(0, 0%, 0%) 0px 0px 10px 5px;
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px auto;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: rgb(117, 117, 175);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-align: center;
 }
 
 p {
-font-size: 1.8rem;
-margin: 13px 15px;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    font-weight: bold;
+    text-align: center;
 }
 
 .cityDisplay, .timpDisplay {
-font-size: 3.5rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+    word-break: break-word;
+}
+
+.humidityDisplay {
+    margin-bottom: 15px;
 }
 
 .descDisplay {
-font-size: 2.5rem;
+    font-style: italic;
+    font-size: 1.8rem;
+    color: hsla(0, 9%, 9%, 0.748);
+    text-align: center;
 }
 
 .weatherEmoji {
-font-size: 7rem;
-}
-}
-
-/* ===== LARGE DESKTOPS (1200px and up) ===== */
-@media screen and (min-width: 1200px) {
-.card {
-max-width: 600px;
+    font-size: 5rem;
+    margin: 10px 0;
 }
 
-.cityInput {
-width: 400px;
-}
+.errorDisplay {
+    color: hsla(0, 9%, 9%, 0.748);
+    text-align: center;
+    padding: 10px;
 }
 
-/* ===== TOUCH DEVICE OPTIMIZATIONS ===== */
+/* Touch device optimizations */
 @media (hover: none) and (pointer: coarse) {
-/* Remove hover animation on touch devices */
-button:hover {
-animation: none;
+    button:hover {
+        animation: none;
+    }
+    
+    button:active {
+        transform: scale(0.95);
+        transition: transform 0.1s;
+    }
+    
+    button, 
+    .cityInput {
+        min-height: 50px;
+    }
 }
 
-button:active {
-transform: scale(0.95);
-transition: transform 0.1s;
-}
-
-/* Larger touch targets */
-button,
-.cityInput {
-min-height: 50px;
-}
-}
-
-/* ===== LANDSCAPE MODE ON PHONES ===== */
+/* Landscape mode on phones */
 @media screen and (max-height: 500px) and (orientation: landscape) {
-body {
-padding: 10px;
+    body {
+        padding: 10px;
+    }
+    
+    .weatherForm {
+        margin: 15px;
+    }
+    
+    .card {
+        padding: 20px;
+        max-width: 400px;
+    }
+    
+    .weatherEmoji {
+        font-size: 4rem;
+    }
 }
-
-.weatherForm {
-margin: 15px;
-}
-
-.card {
-padding: 20px;
-max-width: 400px;
-}
-
-.weatherEmoji {
-font-size: 4rem;
-}
-}
-
 
 
 
