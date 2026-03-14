@@ -1,111 +1,278 @@
-body{
-    margin: 0 ;
-    font-family: Arial, sans-serif;
-    background-image: url(simple.avif);
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* Base styles (mobile first) */
+body {
+margin: 0;
+font-family: Arial, sans-serif;
+background-image: url(simple.avif);
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center; /* Better background positioning */
+display: flex;
+flex-direction: column;
+align-items: center;
+min-height: 100vh;
+padding: 10px; /* Add some padding on mobile */
+box-sizing: border-box;
 }
 
-.weatherForm{
-    margin: 20px;
-
+.weatherForm {
+margin: 20px;
+width: 100%;
+max-width: 500px; /* Prevent form from getting too wide */
+display: flex;
+flex-direction: column;
+align-items: center;
 }
 
-.cityInput{
-    width: 250px;
-    height: 30px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    padding: 15px;
-    margin: 15px;
-    
+.cityInput {
+width: 100%; /* Full width on mobile */
+max-width: 280px; /* Slightly larger than original */
+height: 30px;
+border: none;
+border-radius: 8px;
+font-size: 1.2rem; /* Slightly smaller on mobile */
+font-weight: bold;
+padding: 12px; /* Slightly smaller padding on mobile */
+margin: 10px 0;
+box-sizing: border-box;
 }
 
-button[type="submit"]{
-    padding: 16px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    background: linear-gradient(90deg, hsl(210, 100%, 75%), hsl(40, 100%, 70%));
-    background-size: 200% 200%;  
-    background-position: 0% 0%;
-    animation : gradientanim 3s linear infinite;
-    color: white;
-    cursor: pointer;
+button[type="submit"] {
+padding: 14px 20px; /* Adjusted padding */
+font-size: 1.2rem; /* Slightly smaller on mobile */
+font-weight: bold;
+border: none;
+border-radius: 8px;
+background: linear-gradient(90deg, hsl(210, 100%, 75%), hsl(40, 100%, 70%));
+background-size: 200% 200%;
+background-position: 0% 0%;
+animation: gradientanim 3s linear infinite;
+color: white;
+cursor: pointer;
+width: 100%;
+max-width: 280px;
+transition: transform 0.3s ease;
 }
 
 @keyframes gradientanim {
-    0% { background-position: 0% 50%; }
-  25% { background-position: 100% 50%; }
-  50% { background-position: 100% 100%; }
-  75% { background-position: 0% 100%; }
-  100% { background-position: 0% 50%; }
+0% { background-position: 0% 50%; }
+25% { background-position: 100% 50%; }
+50% { background-position: 100% 100%; }
+75% { background-position: 0% 100%; }
+100% { background-position: 0% 50%; }
 }
 
-button:hover{
-    animation : scale 0.8s ease-in ;
+button:hover {
+animation: scale 0.8s ease-in;
 }
 
-
-@keyframes scale{
-    0%, 100% { transform : scale(1)}
-    50% { transform : scale(1.2)}
-    
+@keyframes scale {
+0%, 100% { transform: scale(1); }
+50% { transform: scale(1.2); }
 }
 
-.card{
-    background: linear-gradient(180deg, hsl(210, 100%, 75%), hsl(40, 100%, 70%));
-    padding: 50px;
-    border-radius: 5px;
-    box-shadow: hsl(0, 0%, 0%) 0px 0px 10px 5px;
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.card {
+background: linear-gradient(180deg, hsl(210, 100%, 75%), hsl(40, 100%, 70%));
+padding: 30px; /* Smaller padding on mobile */
+border-radius: 15px; /* Slightly more rounded */
+box-shadow: hsl(0, 0%, 0%) 0px 0px 10px 5px;
+width: 100%;
+max-width: 350px; /* Slightly larger than original */
+display: flex;
+flex-direction: column;
+align-items: center;
+margin: 10px auto;
+box-sizing: border-box;
 }
 
-h1{
-    color: rgb(117, 117, 175);
-    margin-top: 0px;
-    margin-bottom: 20px;
+h1 {
+color: rgb(117, 117, 175);
+margin-top: 0;
+margin-bottom: 20px;
+font-size: 2rem; /* Responsive font size */
+text-align: center;
 }
 
-p{
-    font-size: 1.5rem;
-    margin: 13px 15px;
-    font-weight: bold;
+p {
+font-size: 1.2rem; /* Smaller on mobile */
+margin: 10px 0;
+font-weight: bold;
+text-align: center;
 }
 
-.cityDisplay, .timpDisplay{
-    font-size: 3.5rem;
-    font-weight: bold;
-    margin-bottom: 25px;
+.cityDisplay, .timpDisplay {
+font-size: 2.5rem; /* Smaller on mobile */
+font-weight: bold;
+margin-bottom: 15px;
+text-align: center;
+word-break: break-word; /* Prevent long city names from overflowing */
 }
 
-.humidityDisplay{
-    margin-bottom: 25px;
+.humidityDisplay {
+margin-bottom: 15px;
 }
 
-.descDisplay{
-    font-style: italic;
-    font-size: 2.5rem;
-    color:hsla(0, 9%, 9%, 0.748);
+.descDisplay {
+font-style: italic;
+font-size: 1.8rem; /* Smaller on mobile */
+color: hsla(0, 9%, 9%, 0.748);
+text-align: center;
 }
 
-.weatherEmoji{
-    font-size: 7rem;
-    margin: 0;
+.weatherEmoji {
+font-size: 5rem; /* Smaller on mobile */
+margin: 10px 0;
 }
 
-.errorDisplay{
-    color: hsla(0, 9%, 9%, 0.748);
+.errorDisplay {
+color: hsla(0, 9%, 9%, 0.748);
+text-align: center;
+padding: 10px;
 }
+
+/* ===== TABLETS (600px and up) ===== */
+@media screen and (min-width: 600px) {
+body {
+padding: 20px;
+}
+
+.weatherForm {
+flex-direction: row; /* Row layout on tablets */
+justify-content: center;
+gap: 15px;
+margin: 30px;
+}
+
+.cityInput {
+width: 280px;
+font-size: 1.5rem;
+padding: 15px;
+margin: 0;
+}
+
+button[type="submit"] {
+width: auto;
+min-width: 150px;
+font-size: 1.5rem;
+padding: 16px;
+}
+
+.card {
+padding: 40px;
+max-width: 450px;
+}
+
+p {
+font-size: 1.5rem;
+}
+
+.cityDisplay, .timpDisplay {
+font-size: 3rem;
+}
+
+.descDisplay {
+font-size: 2.2rem;
+}
+
+.weatherEmoji {
+font-size: 6rem;
+}
+}
+
+/* ===== DESKTOPS (992px and up) ===== */
+@media screen and (min-width: 992px) {
+body {
+padding: 30px;
+}
+
+.weatherForm {
+margin: 40px;
+gap: 20px;
+}
+
+.cityInput {
+width: 350px;
+font-size: 1.8rem;
+}
+
+button[type="submit"] {
+font-size: 1.8rem;
+padding: 18px 30px;
+}
+
+.card {
+padding: 50px;
+max-width: 550px;
+box-shadow: hsl(0, 0%, 0%) 0px 0px 15px 8px; /* Slightly bigger shadow on desktop */
+}
+
+p {
+font-size: 1.8rem;
+margin: 13px 15px;
+}
+
+.cityDisplay, .timpDisplay {
+font-size: 3.5rem;
+}
+
+.descDisplay {
+font-size: 2.5rem;
+}
+
+.weatherEmoji {
+font-size: 7rem;
+}
+}
+
+/* ===== LARGE DESKTOPS (1200px and up) ===== */
+@media screen and (min-width: 1200px) {
+.card {
+max-width: 600px;
+}
+
+.cityInput {
+width: 400px;
+}
+}
+
+/* ===== TOUCH DEVICE OPTIMIZATIONS ===== */
+@media (hover: none) and (pointer: coarse) {
+/* Remove hover animation on touch devices */
+button:hover {
+animation: none;
+}
+
+button:active {
+transform: scale(0.95);
+transition: transform 0.1s;
+}
+
+/* Larger touch targets */
+button,
+.cityInput {
+min-height: 50px;
+}
+}
+
+/* ===== LANDSCAPE MODE ON PHONES ===== */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+body {
+padding: 10px;
+}
+
+.weatherForm {
+margin: 15px;
+}
+
+.card {
+padding: 20px;
+max-width: 400px;
+}
+
+.weatherEmoji {
+font-size: 4rem;
+}
+}
+
 
 
 
