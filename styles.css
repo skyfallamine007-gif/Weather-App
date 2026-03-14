@@ -1,0 +1,129 @@
+body{
+    margin: 0 ;
+    font-family: Arial, sans-serif;
+    background-image: url(simple.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.weatherForm{
+    margin: 20px;
+
+}
+
+.cityInput{
+    width: 250px;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 15px;
+    margin: 15px;
+    
+}
+
+button[type="submit"]{
+    padding: 16px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, hsl(210, 100%, 75%), hsl(40, 100%, 70%));
+    background-size: 200% 200%;  
+    background-position: 0% 0%;
+    animation : gradientanim 3s linear infinite;
+    color: white;
+    cursor: pointer;
+}
+
+@keyframes gradientanim {
+    0% { background-position: 0% 50%; }
+  25% { background-position: 100% 50%; }
+  50% { background-position: 100% 100%; }
+  75% { background-position: 0% 100%; }
+  100% { background-position: 0% 50%; }
+}
+
+button:hover{
+    animation : scale 0.8s ease-in ;
+}
+
+
+@keyframes scale{
+    0%, 100% { transform : scale(1)}
+    50% { transform : scale(1.2)}
+    
+}
+
+.card{
+    background: linear-gradient(180deg, hsl(210, 100%, 75%), hsl(40, 100%, 70%));
+    padding: 50px;
+    border-radius: 5px;
+    box-shadow: hsl(0, 0%, 0%) 0px 0px 10px 5px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    color: rgb(117, 117, 175);
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+p{
+    font-size: 1.5rem;
+    margin: 13px 15px;
+    font-weight: bold;
+}
+
+.cityDisplay, .timpDisplay{
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.humidityDisplay{
+    margin-bottom: 25px;
+}
+
+.descDisplay{
+    font-style: italic;
+    font-size: 2.5rem;
+    color:hsla(0, 9%, 9%, 0.748);
+}
+
+.weatherEmoji{
+    font-size: 7rem;
+    margin: 0;
+}
+
+.errorDisplay{
+    color: hsla(0, 9%, 9%, 0.748);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
