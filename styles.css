@@ -26,19 +26,20 @@ body {
 .cityInput {
     width: 100%;
     max-width: 280px;
-    /* Remove fixed height - let padding determine it */
     border: none;
     border-radius: 8px;
     font-size: 1.2rem;
     font-weight: bold;
-    padding: 16px; /* Match button padding */
+    padding: 12px 16px; /* Slightly less vertical padding */
     margin: 10px 0;
     box-sizing: border-box;
-    line-height: 1; /* Better text alignment */
+    /* Force exact height */
+    height: 54px; /* Fixed height to match button */
+    line-height: normal; /* Reset line height */
 }
 
 button[type="submit"] {
-    padding: 16px; /* Keep consistent with input */
+    padding: 0 16px; /* Horizontal padding only */
     font-size: 1.2rem;
     font-weight: bold;
     border: none;
@@ -51,8 +52,14 @@ button[type="submit"] {
     cursor: pointer;
     width: 100%;
     max-width: 280px;
-    line-height: 1; /* Match input line height */
-    transition: transform 0.3s ease;
+    /* Force exact height - match input */
+    height: 54px;
+    line-height: 54px; /* Match height for vertical centering */
+    text-align: center;
+    box-sizing: border-box;
+    /* Remove any default button styles */
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 /* ===== TABLETS (600px and up) ===== */
@@ -64,7 +71,7 @@ button[type="submit"] {
     .weatherForm {
         flex-direction: row;
         justify-content: center;
-        align-items: center; /* Align items vertically */
+        align-items: stretch; /* This makes children stretch to same height */
         gap: 15px;
         margin: 30px;
     }
@@ -72,21 +79,19 @@ button[type="submit"] {
     .cityInput {
         width: 280px;
         font-size: 1.5rem;
-        padding: 16px; /* Keep padding consistent */
+        padding: 0 16px; /* Horizontal padding only */
         margin: 0;
-        height: auto; /* Let padding determine height */
+        height: 60px; /* Slightly taller on tablet */
+        line-height: 60px;
     }
 
     button[type="submit"] {
         width: auto;
         min-width: 150px;
         font-size: 1.5rem;
-        padding: 16px; /* Exactly matching input padding */
-        height: auto; /* Let padding determine height */
-        /* This ensures both elements have the same height */
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        padding: 0 20px; /* Horizontal padding only */
+        height: 60px; /* Match input exactly */
+        line-height: 60px; /* Match height for centering */
     }
 }
 
@@ -104,13 +109,17 @@ button[type="submit"] {
     .cityInput {
         width: 350px;
         font-size: 1.8rem;
-        padding: 18px; /* Slightly larger on desktop */
+        height: 70px; /* Taller on desktop */
+        line-height: 70px;
+        padding: 0 20px;
     }
 
     button[type="submit"] {
         font-size: 1.8rem;
-        padding: 18px 30px; /* Match input padding vertically */
+        padding: 0 30px;
         min-width: 180px;
+        height: 70px; /* Match input exactly */
+        line-height: 70px; /* Match height for centering */
     }
 
     .card {
@@ -118,26 +127,9 @@ button[type="submit"] {
         max-width: 550px;
         box-shadow: hsl(0, 0%, 0%) 0px 0px 15px 8px;
     }
-
-    p {
-        font-size: 1.8rem;
-        margin: 13px 15px;
-    }
-
-    .cityDisplay, .timpDisplay {
-        font-size: 3.5rem;
-    }
-
-    .descDisplay {
-        font-size: 2.5rem;
-    }
-
-    .weatherEmoji {
-        font-size: 7rem;
-    }
 }
 
-/* Rest of your animations and other styles remain the same */
+/* Rest of your styles remain the same */
 @keyframes gradientanim {
     0% { background-position: 0% 50%; }
     25% { background-position: 100% 50%; }
@@ -214,6 +206,17 @@ p {
     padding: 10px;
 }
 
+/* Large desktops */
+@media screen and (min-width: 1200px) {
+    .card {
+        max-width: 600px;
+    }
+
+    .cityInput {
+        width: 400px;
+    }
+}
+
 /* Touch device optimizations */
 @media (hover: none) and (pointer: coarse) {
     button:hover {
@@ -227,7 +230,7 @@ p {
     
     button, 
     .cityInput {
-        min-height: 50px;
+        min-height: 60px;
     }
 }
 
@@ -250,11 +253,6 @@ p {
         font-size: 4rem;
     }
 }
-
-
-
-
-
 
 
 
