@@ -1,257 +1,110 @@
-/* Base styles (mobile first) */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-image: url(simple.avif);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    padding: 10px;
-    box-sizing: border-box;
+body{
+margin: 0 ;
+font-family: Arial, sans-serif;
+background-image: url(simple.avif);
+background-repeat: no-repeat;
+background-size: cover;
+display: flex;
+flex-direction: column;
+align-items: center;
 }
 
-.weatherForm {
-    margin: 20px;
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.weatherForm{
+margin: 20px;
+
 }
 
-.cityInput {
-    width: 100%;
-    max-width: 280px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 12px 16px; /* Slightly less vertical padding */
-    margin: 10px 0;
-    box-sizing: border-box;
-    /* Force exact height */
-    height: 54px; /* Fixed height to match button */
-    line-height: normal; /* Reset line height */
+.cityInput{
+width: 250px;
+height: 30px;
+border: none;
+border-radius: 8px;
+font-size: 1.5rem;
+font-weight: bold;
+padding: 15px;
+margin: 15px;
+
 }
 
-button[type="submit"] {
-    padding: 0 16px; /* Horizontal padding only */
-    font-size: 1.2rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    background: linear-gradient(90deg, hsl(210, 100%, 75%), hsl(40, 100%, 70%));
-    background-size: 200% 200%;
-    background-position: 0% 0%;
-    animation: gradientanim 3s linear infinite;
-    color: white;
-    cursor: pointer;
-    width: 100%;
-    max-width: 280px;
-    /* Force exact height - match input */
-    height: 54px;
-    line-height: 54px; /* Match height for vertical centering */
-    text-align: center;
-    box-sizing: border-box;
-    /* Remove any default button styles */
-    -webkit-appearance: none;
-    appearance: none;
+button[type="submit"]{
+padding: 16px;
+font-size: 1.5rem;
+font-weight: bold;
+border: none;
+border-radius: 8px;
+background: linear-gradient(90deg, hsl(210, 100%, 75%), hsl(40, 100%, 70%));
+background-size: 200% 200%;
+background-position: 0% 0%;
+animation : gradientanim 3s linear infinite;
+color: white;
+cursor: pointer;
 }
 
-/* ===== TABLETS (600px and up) ===== */
-@media screen and (min-width: 600px) {
-    body {
-        padding: 20px;
-    }
-
-    .weatherForm {
-        flex-direction: row;
-        justify-content: center;
-        align-items: stretch; /* This makes children stretch to same height */
-        gap: 15px;
-        margin: 30px;
-    }
-
-    .cityInput {
-        width: 280px;
-        font-size: 1.5rem;
-        padding: 0 16px; /* Horizontal padding only */
-        margin: 0;
-        height: 60px; /* Slightly taller on tablet */
-        line-height: 60px;
-    }
-
-    button[type="submit"] {
-        width: auto;
-        min-width: 150px;
-        font-size: 1.5rem;
-        padding: 0 20px; /* Horizontal padding only */
-        height: 60px; /* Match input exactly */
-        line-height: 60px; /* Match height for centering */
-    }
-}
-
-/* ===== DESKTOPS (992px and up) ===== */
-@media screen and (min-width: 992px) {
-    body {
-        padding: 30px;
-    }
-
-    .weatherForm {
-        margin: 40px;
-        gap: 20px;
-    }
-
-    .cityInput {
-        width: 350px;
-        font-size: 1.8rem;
-        height: 70px; /* Taller on desktop */
-        line-height: 70px;
-        padding: 0 20px;
-    }
-
-    button[type="submit"] {
-        font-size: 1.8rem;
-        padding: 0 30px;
-        min-width: 180px;
-        height: 70px; /* Match input exactly */
-        line-height: 70px; /* Match height for centering */
-    }
-
-    .card {
-        padding: 50px;
-        max-width: 550px;
-        box-shadow: hsl(0, 0%, 0%) 0px 0px 15px 8px;
-    }
-}
-
-/* Rest of your styles remain the same */
 @keyframes gradientanim {
-    0% { background-position: 0% 50%; }
-    25% { background-position: 100% 50%; }
-    50% { background-position: 100% 100%; }
-    75% { background-position: 0% 100%; }
-    100% { background-position: 0% 50%; }
+0% { background-position: 0% 50%; }
+25% { background-position: 100% 50%; }
+50% { background-position: 100% 100%; }
+75% { background-position: 0% 100%; }
+100% { background-position: 0% 50%; }
 }
 
-button:hover {
-    animation: scale 0.8s ease-in;
+button:hover{
+animation : scale 0.8s ease-in ;
 }
 
-@keyframes scale {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); }
+
+@keyframes scale{
+0%, 100% { transform : scale(1)}
+50% { transform : scale(1.2)}
+
 }
 
-.card {
-    background: linear-gradient(180deg, hsl(210, 100%, 75%), hsl(40, 100%, 70%));
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: hsl(0, 0%, 0%) 0px 0px 10px 5px;
-    width: 100%;
-    max-width: 350px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10px auto;
-    box-sizing: border-box;
+.card{
+background: linear-gradient(180deg, hsl(210, 100%, 75%), hsl(40, 100%, 70%));
+padding: 50px;
+border-radius: 5px;
+box-shadow: hsl(0, 0%, 0%) 0px 0px 10px 5px;
+min-width: 300px;
+display: flex;
+flex-direction: column;
+align-items: center;
 }
 
-h1 {
-    color: rgb(117, 117, 175);
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-size: 2rem;
-    text-align: center;
+h1{
+color: rgb(117, 117, 175);
+margin-top: 0px;
+margin-bottom: 20px;
 }
 
-p {
-    font-size: 1.2rem;
-    margin: 10px 0;
-    font-weight: bold;
-    text-align: center;
+p{
+font-size: 1.5rem;
+margin: 13px 15px;
+font-weight: bold;
 }
 
-.cityDisplay, .timpDisplay {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-    text-align: center;
-    word-break: break-word;
+.cityDisplay, .timpDisplay{
+font-size: 3.5rem;
+font-weight: bold;
+margin-bottom: 25px;
 }
 
-.humidityDisplay {
-    margin-bottom: 15px;
+.humidityDisplay{
+margin-bottom: 25px;
 }
 
-.descDisplay {
-    font-style: italic;
-    font-size: 1.8rem;
-    color: hsla(0, 9%, 9%, 0.748);
-    text-align: center;
+.descDisplay{
+font-style: italic;
+font-size: 2.5rem;
+color:hsla(0, 9%, 9%, 0.748);
 }
 
-.weatherEmoji {
-    font-size: 5rem;
-    margin: 10px 0;
+.weatherEmoji{
+font-size: 7rem;
+margin: 0;
 }
 
-.errorDisplay {
-    color: hsla(0, 9%, 9%, 0.748);
-    text-align: center;
-    padding: 10px;
-}
-
-/* Large desktops */
-@media screen and (min-width: 1200px) {
-    .card {
-        max-width: 600px;
-    }
-
-    .cityInput {
-        width: 400px;
-    }
-}
-
-/* Touch device optimizations */
-@media (hover: none) and (pointer: coarse) {
-    button:hover {
-        animation: none;
-    }
-    
-    button:active {
-        transform: scale(0.95);
-        transition: transform 0.1s;
-    }
-    
-    button, 
-    .cityInput {
-        min-height: 60px;
-    }
-}
-
-/* Landscape mode on phones */
-@media screen and (max-height: 500px) and (orientation: landscape) {
-    body {
-        padding: 10px;
-    }
-    
-    .weatherForm {
-        margin: 15px;
-    }
-    
-    .card {
-        padding: 20px;
-        max-width: 400px;
-    }
-    
-    .weatherEmoji {
-        font-size: 4rem;
-    }
+.errorDisplay{
+color: hsla(0, 9%, 9%, 0.748);
 }
 
 
