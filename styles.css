@@ -1,115 +1,173 @@
-body{
-margin: 0 ;
-font-family: Arial, sans-serif;
-background-image: url(simple.avif);
-background-repeat: no-repeat;
-background-size: cover;
-display: flex;
-flex-direction: column;
-align-items: center;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url(simple.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.weatherForm{
-margin: 20px;
-
+.weatherForm {
+    margin: 20px;
+    display: flex;
+    align-items: center;
 }
 
-.cityInput{
-width: 250px;
-height: 30px;
-border: none;
-border-radius: 8px;
-font-size: 1.5rem;
-font-weight: bold;
-padding: 15px;
-margin: 15px;
-
+/* Base styles for PHONES (up to 599px) */
+.cityInput {
+    width: 220px; /* Smaller for phones */
+    height: 25px; /* Smaller for phones */
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem; /* Smaller for phones */
+    font-weight: bold;
+    padding: 12px; /* Smaller for phones */
+    margin: 10px;
 }
 
-button[type="submit"]{
-padding: 16px;
-font-size: 1.5rem;
-font-weight: bold;
-border: none;
-border-radius: 8px;
-background: linear-gradient(90deg, hsl(210, 100%, 75%), hsl(40, 100%, 70%));
-background-size: 200% 200%;
-background-position: 0% 0%;
-animation : gradientanim 3s linear infinite;
-color: white;
-cursor: pointer;
+button[type="submit"] {
+    padding: 12px; /* Smaller for phones */
+    font-size: 1.2rem; /* Smaller for phones */
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, hsl(210, 100%, 75%), hsl(40, 100%, 70%));
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+    animation: gradientanim 3s linear infinite;
+    color: white;
+    cursor: pointer;
 }
 
+/* ===== TABLETS (600px to 991px) ===== */
+@media screen and (min-width: 600px) and (max-width: 991px) {
+    .cityInput {
+        width: 240px; /* Medium size for tablets */
+        height: 28px;
+        font-size: 1.4rem;
+        padding: 13px;
+        margin: 12px;
+    }
+
+    button[type="submit"] {
+        padding: 14px;
+        font-size: 1.4rem;
+    }
+}
+
+/* ===== DESKTOPS (992px and up) ===== */
+@media screen and (min-width: 992px) {
+    .weatherForm {
+        margin: 20px;
+    }
+
+    .cityInput {
+        width: 250px; /* YOUR ORIGINAL SIZE - KEPT EXACTLY */
+        height: 30px; /* YOUR ORIGINAL SIZE - KEPT EXACTLY */
+        font-size: 1.5rem; /* YOUR ORIGINAL SIZE - KEPT EXACTLY */
+        padding: 15px; /* YOUR ORIGINAL SIZE - KEPT EXACTLY */
+        margin: 15px; /* YOUR ORIGINAL SIZE - KEPT EXACTLY */
+    }
+
+    button[type="submit"] {
+        padding: 16px; /* YOUR ORIGINAL SIZE - KEPT EXACTLY */
+        font-size: 1.5rem; /* YOUR ORIGINAL SIZE - KEPT EXACTLY */
+    }
+}
+
+/* ANIMATIONS (unchanged) */
 @keyframes gradientanim {
-0% { background-position: 0% 50%; }
-25% { background-position: 100% 50%; }
-50% { background-position: 100% 100%; }
-75% { background-position: 0% 100%; }
-100% { background-position: 0% 50%; }
+    0% { background-position: 0% 50%; }
+    25% { background-position: 100% 50%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+    100% { background-position: 0% 50%; }
 }
 
-button:hover{
-animation : scale 0.8s ease-in ;
+button:hover {
+    animation: scale 0.8s ease-in;
 }
 
-
-@keyframes scale{
-0%, 100% { transform : scale(1)}
-50% { transform : scale(1.2)}
-
+@keyframes scale {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
 }
 
-.card{
-background: linear-gradient(180deg, hsl(210, 100%, 75%), hsl(40, 100%, 70%));
-padding: 50px;
-border-radius: 5px;
-box-shadow: hsl(0, 0%, 0%) 0px 0px 10px 5px;
-min-width: 300px;
-display: flex;
-flex-direction: column;
-align-items: center;
+.card {
+    background: linear-gradient(180deg, hsl(210, 100%, 75%), hsl(40, 100%, 70%));
+    padding: 50px;
+    border-radius: 5px;
+    box-shadow: hsl(0, 0%, 0%) 0px 0px 10px 5px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-h1{
-color: rgb(117, 117, 175);
-margin-top: 0px;
-margin-bottom: 20px;
+h1 {
+    color: rgb(117, 117, 175);
+    margin-top: 0px;
+    margin-bottom: 20px;
 }
 
-p{
-font-size: 1.5rem;
-margin: 13px 15px;
-font-weight: bold;
+p {
+    font-size: 1.5rem;
+    margin: 13px 15px;
+    font-weight: bold;
 }
 
-.cityDisplay, .timpDisplay{
-font-size: 3.5rem;
-font-weight: bold;
-margin-bottom: 25px;
+.cityDisplay, .timpDisplay {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 25px;
 }
 
-.humidityDisplay{
-margin-bottom: 25px;
+.humidityDisplay {
+    margin-bottom: 25px;
 }
 
-.descDisplay{
-font-style: italic;
-font-size: 2.5rem;
-color:hsla(0, 9%, 9%, 0.748);
+.descDisplay {
+    font-style: italic;
+    font-size: 2.5rem;
+    color: hsla(0, 9%, 9%, 0.748);
 }
 
-.weatherEmoji{
-font-size: 7rem;
-margin: 0;
+.weatherEmoji {
+    font-size: 7rem;
+    margin: 0;
 }
 
-.errorDisplay{
-color: hsla(0, 9%, 9%, 0.748);
+.errorDisplay {
+    color: hsla(0, 9%, 9%, 0.748);
 }
 
-
-
-
+/* Optional: Make card responsive on small screens */
+@media screen and (max-width: 599px) {
+    .card {
+        padding: 30px;
+        min-width: 250px;
+        max-width: 90%;
+    }
+    
+    p {
+        font-size: 1.2rem;
+        margin: 10px;
+    }
+    
+    .cityDisplay, .timpDisplay {
+        font-size: 2.5rem;
+    }
+    
+    .descDisplay {
+        font-size: 2rem;
+    }
+    
+    .weatherEmoji {
+        font-size: 5rem;
+    }
+}
 
 
 
