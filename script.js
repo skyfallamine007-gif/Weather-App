@@ -42,8 +42,8 @@ async function getWeatherData(city){
 
 function displayWeatherInfo(data){
    const {name : city,
-         main :{temp, humidity},
-         weather : [{description, id }]} = data;
+         main :{temp, humidity, feels_like},
+         weather : [{description, id , main }]} = data;
 console.log(data)
     card.textContent = "";
     card.style.display = "flex";  
@@ -53,14 +53,18 @@ console.log(data)
     const cityDisplay = document.createElement("h1");
     const tempDisplay = document.createElement("p");
     const humidityDisplay = document.createElement("p");
+    const mainDisplay = document.createElement("p");
     const descDisplay = document.createElement("p");
+    const feelsLikeDisplay = document.createElement("p");
     const weatherEmoji = document.createElement("p");
 
 
     /* Displaying the content of the card */
     cityDisplay.textContent = city;
     tempDisplay.textContent = `${temp}°C`;
+    feelsLikeDisplay.textContent = `Feels Like : ${feels_like}°C`;
     humidityDisplay.textContent = `Humidity: ${humidity}%`;
+     mainDisplay.textContent = `Main Temp : ${main}`;
     descDisplay.textContent = description;
     weatherEmoji.textContent = getWeatherEmoji(id);
 
@@ -69,14 +73,18 @@ console.log(data)
      cityDisplay.classList.add("cityDisplay");
      tempDisplay.classList.add("timpDisplay");
      humidityDisplay.classList.add("humidityDisplay");
+     mainDisplay.classList.add("mainDisplay");
      descDisplay.classList.add("descDisplay");
+    feelsLikeDisplay.classList.add("feelsLikeDisplay");
      weatherEmoji.classList.add("weatherEmoji");
 
 
     /* Adding the the elements to the bottom of each other */
     card.appendChild(cityDisplay);
     card.appendChild(tempDisplay);
+    card.appendChild(feelsLikeDisplay);
     card.appendChild(humidityDisplay);
+    card.appendChild(mainDisplay);
     card.appendChild(descDisplay);
     card.appendChild(weatherEmoji);
 };
@@ -97,7 +105,9 @@ function getWeatherEmoji(weatherId){
             case (weatherId === 800 ) :
                   return "☀️";    
             case (weatherId > 800 ) :
-                  return "☁️";                          
+                  return "☁️";     
+              default: 
+              return "🤔";
       }
 };
 
