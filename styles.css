@@ -126,7 +126,7 @@ p {
     margin-bottom: 25px;
 }
 
-.humidityDisplay , .feelsLikeDisplay {
+.humidityDisplay, .feelsLikeDisplay {
     margin-bottom: 25px;
 }
 
@@ -147,13 +147,14 @@ p {
 
 /* Optional: Make card responsive on small screens */
 @media screen and (max-width: 599px) {
+  
     .weatherForm{
         flex-direction: column;
     }
     
     .card {
         padding: 30px;
-        min-width: 250px;
+        width: 85%;
         max-width: 90%;
     }
     
@@ -162,22 +163,26 @@ p {
         margin: 10px;
     }
     
+    .mainDisplay{
+        font-size: 1.4rem;
+    }
     .cityDisplay, .timpDisplay {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
     }
 
     .humidityDisplay, .feelsLikeDisplay {
-        font-size: 2rem;
+        font-size: 1.2rem;
     }
     
     .descDisplay {
-        font-size: 2rem;
+        font-size: 1.4rem;
     }
     
     .weatherEmoji {
-        font-size: 5rem;
+        font-size: 3.5rem;
     }
 }
+
 
 
 
