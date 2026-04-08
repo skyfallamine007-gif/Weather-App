@@ -4,6 +4,7 @@ body {
     background-image: url(simple.avif);
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,6 +13,7 @@ body {
 .weatherForm {
     margin: 20px;
     display: flex;
+    flex-direction: row;
     align-items: center;
 }
 
@@ -124,14 +126,14 @@ p {
     margin-bottom: 25px;
 }
 
-.humidityDisplay {
+.humidityDisplay , .feelsLikeDisplay {
     margin-bottom: 25px;
 }
 
-.descDisplay {
+.descDisplay , .mainDisplay {
     font-style: italic;
     font-size: 2.5rem;
-    color: hsla(0, 9%, 9%, 0.748);
+    color: hsla(215, 69%, 34%, 0.748);
 }
 
 .weatherEmoji {
@@ -145,6 +147,10 @@ p {
 
 /* Optional: Make card responsive on small screens */
 @media screen and (max-width: 599px) {
+    .weatherForm{
+        flex-direction: column;
+    }
+    
     .card {
         padding: 30px;
         min-width: 250px;
@@ -158,6 +164,10 @@ p {
     
     .cityDisplay, .timpDisplay {
         font-size: 2.5rem;
+    }
+
+    .humidityDisplay, .feelsLikeDisplay {
+        font-size: 2rem;
     }
     
     .descDisplay {
